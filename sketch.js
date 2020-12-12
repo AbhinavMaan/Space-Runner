@@ -24,14 +24,14 @@ function preload() {
 
 
 function setup() {
-  createCanvas(600, 400);
+  createCanvas(window.width, window.height);
   
   galaxy = createSprite(00,200,20,400);
   galaxy.addImage("galaxy",galaxyImg);
   galaxy.velocityX = 2.5;
   galaxy.scale = 3.5;
   
-  jet = createSprite(550,200,20,20);
+  jet = createSprite(window-50,window/2,20,20);
   jet.addImage(jetImg);
   jet.scale = 0.4;
   
@@ -66,22 +66,8 @@ function draw() {
    galaxy.x = galaxy.width/2;
  } 
   
- if (keyWentDown(UP_ARROW)){
-   jet.velocityY = -5;
- }
-  
-  if (keyWentUp(UP_ARROW)){
-    jet.velocityY = 0;
-  }
- 
-  if (keyWentDown(DOWN_ARROW)){
-    jet.velocityY = 5;
-  }
-  
-  if (keyWentUp(DOWN_ARROW)){
-    jet.velocityY = 0;
-  }
-    
+ jet.velocityY = mouse.Y;
+   
     if (astieroidGroup.isTouching(jet)){
       gameState = "End";
     }
