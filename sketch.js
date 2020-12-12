@@ -66,7 +66,7 @@ function draw() {
    galaxy.x = galaxy.width/2;
  } 
   
- jet.velocityY = mouse.Y;
+ jet.y = World.mouseY;
    
     if (astieroidGroup.isTouching(jet)){
       gameState = "End";
